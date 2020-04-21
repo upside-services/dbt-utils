@@ -1,5 +1,5 @@
 
-version: 2
+version: 2.1
 
 jobs:
   test-postgres:
@@ -46,3 +46,21 @@ jobs:
           environment:
               GCLOUD_SERVICE_KEY_PATH: "/home/circleci/gcloud-service-key.json"
           command: ./run_test.sh bigquery
+
+workflows:
+  version: 2
+  test-everything:
+    jobs:
+      - test-postgres
+
+      - test-snowflake:
+          filters: &no_forks
+            branches:
+              ignore: /pull\/[0-9]+/
+
+      - test-bigquery:
+          filters: *no_forks
+
+      - test-redshift:
+          filters: *no_forks
+
