@@ -24,6 +24,7 @@ jobs:
       - image: circleci/python:3.6.2-stretch
 
     steps:
+      - checkout
       - run:
           name: "Run Tests - Snowflake"
           command: ./run_test.sh snowflake
@@ -33,6 +34,7 @@ jobs:
       - image: circleci/python:3.6.2-stretch
 
     steps:
+      - checkout
       - run:
           name: "Run Tests - Redshift"
           command: ./run_test.sh redshift
@@ -42,6 +44,7 @@ jobs:
       - image: circleci/python:3.6.2-stretch
 
     steps:
+      - checkout
       - run:
           run: setup_creds
           command: |
