@@ -22,6 +22,8 @@ jobs:
   test-snowflake:
     docker:
       - image: circleci/python:3.6.2-stretch
+
+    steps:
       - run:
           name: "Run Tests - Snowflake"
           command: ./run_test.sh snowflake
@@ -29,6 +31,8 @@ jobs:
   test-redshift:
     docker:
       - image: circleci/python:3.6.2-stretch
+
+    steps:
       - run:
           name: "Run Tests - Redshift"
           command: ./run_test.sh redshift
@@ -36,6 +40,8 @@ jobs:
   test-bigquery:
     docker:
       - image: circleci/python:3.6.2-stretch
+
+    steps:
       - run:
           run: setup_creds
           command: |
