@@ -14,7 +14,7 @@ services:
   postgres:
     image: circleci/postgres:9.6.5-alpine-ram
     ports:
-      - "5432:5432"
+      - "5432:5434"
 
   # dummy container, since snowflake is a managed service
   snowflake:
